@@ -134,6 +134,10 @@ button:active {
   font-weight: 200;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .weather__error {
   color: #f16051;
   font-size: 20px;

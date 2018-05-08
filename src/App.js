@@ -11,6 +11,7 @@ class App extends React.Component {
     city: undefined,
     country: undefined,
     humidity: undefined,
+    wind: undefined,
     description: undefined,
     error: undefined
   }
@@ -28,6 +29,7 @@ class App extends React.Component {
         city: data.name,
         country: data.sys.country,
         humidity: data.main.humidity,
+        wind: data.wind.speed,
         description: data.weather[0].description,
         error: ''
       });
@@ -38,6 +40,7 @@ class App extends React.Component {
         city: undefined,
         country: undefined,
         humidity: undefined,
+        wind: undefined,
         description: undefined,
         error: apiErrorMessage
       });
@@ -47,6 +50,7 @@ class App extends React.Component {
         city: undefined,
         country: undefined,
         humidity: undefined,
+        wind: undefined,
         description: undefined,
         error: 'Error submitting data, try again another time'
       });
@@ -68,6 +72,7 @@ class App extends React.Component {
                 city={this.state.city}
                 country={this.state.country}
                 humidity={this.state.humidity}
+                wind={this.state.wind}
                 description={this.state.description}
                 error={this.state.error}
               />

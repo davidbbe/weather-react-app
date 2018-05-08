@@ -9,6 +9,11 @@ const Weather = (props) => {
         </p> 
       }
       {  
+        props.description && <p className="weather__key"> Conditions: 
+          <span className="weather__value capitalize"> { props.description }</span>
+        </p> 
+      }
+      {  
         props.temperature && <p className="weather__key"> Temperature: 
           <span className="weather__value"> { Math.round(props.temperature) }&#8457;</span>
         </p> 
@@ -19,8 +24,8 @@ const Weather = (props) => {
         </p> 
       }
       {  
-        props.description && <p className="weather__key"> Conditions: 
-          <span className="weather__value"> { props.description }</span>
+        props.humidity && <p className="weather__key"> Wind Speed: 
+          <span className="weather__value"> { Math.round(props.wind) }mph</span>
         </p> 
       }
       { 
