@@ -1,5 +1,4 @@
 import React from 'react';
-import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
 
@@ -13,7 +12,8 @@ class App extends React.Component {
     humidity: undefined,
     wind: undefined,
     description: undefined,
-    error: undefined
+    error: undefined,
+    tnActive: ''
   }
   getWeather = async (e) => {
     e.preventDefault();
@@ -31,7 +31,8 @@ class App extends React.Component {
         humidity: data.main.humidity,
         wind: data.wind.speed,
         description: data.weather[0].description,
-        error: ''
+        error: '',
+        tnActive: 'tnActive'
       });
     } else if (apiCallbackCode === '404') {
       const apiErrorMessage = data.message;
@@ -57,16 +58,29 @@ class App extends React.Component {
     }
   }
 
+  backButton = () => {
+    this.setState({
+      temperature: undefined,
+      city: '',
+      country: '',
+      humidity: undefined,
+      wind: undefined,
+      description: undefined,
+      error: '',
+      tnActive: ''
+    });
+  }
+
   render() {
     return (
       <div className="wrapper">
         <div className="container">
-          <div className="row">
-            <div className="col-sm title-container">
-              <Titles />
-            </div>
-            <div className="col-sm form-container">
+          <div className="row of-hidden">
+            <div className={`col-12 title-container ${this.state.tnActive}`}>
               <Form getWeather={this.getWeather} />
+            </div>
+            <div className={`col-12 form-container ${this.state.tnActive}`}>
+              <button type="button" class="btn" onClick={this.backButton}>Back</button>
               <Weather 
                 temperature={this.state.temperature}
                 city={this.state.city}

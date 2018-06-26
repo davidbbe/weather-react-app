@@ -20,6 +20,7 @@ body {
 
 .container {
   height: 90vh;
+  min-height: 540px;
   background: #fff;
   box-shadow: 0px 13px 40px -13px rgba(0,0,0,0.75);
 }
@@ -36,8 +37,16 @@ body {
   }
 }
 
+.of-hidden {
+  overflow: hidden;
+  flex-wrap: nowrap !important;
+}
+
+.row, .title-container, .form-container {
+  height: 100%;
+}
+
 .title-container {
-  height: 90vh;
   background: url("img/bg.jpg") center center no-repeat;
   background-size: cover;
   display: flex;
@@ -45,6 +54,11 @@ body {
   justify-content: center;
   text-align: center;
   color: #000;
+  transition: transform 0.5s ease;
+}
+
+.tnActive {
+  transform: translateX(-100%);
 }
 
 .title-container__title {
@@ -64,9 +78,8 @@ body {
 
 .form-container {
   background-color: #2c3e50;
-  height: 90vh;
-  padding-top: 100px;
-  padding-left: 50px;
+  padding-top: 20px;
+  transition: transform 0.5s ease;
 }
 
 input[type="text"] {
@@ -84,12 +97,12 @@ input[type="text"] {
 }
 
 input[type="text"] { 
-    outline: none;
+  outline: none;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
-    -webkit-text-fill-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
+  -webkit-text-fill-color: #fff !important;
 }
 
 button {
@@ -115,6 +128,16 @@ button:active {
   font-weight: 200;
   letter-spacing: 2px;
   padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather__info h2 {
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  color: #efefef;
+  margin-bottom: 30px;
 }
 
 .weather__key {
